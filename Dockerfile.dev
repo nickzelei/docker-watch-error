@@ -1,0 +1,9 @@
+FROM alpine:3.18
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY /bin/api /app
+
+ENTRYPOINT ["/app/api"]

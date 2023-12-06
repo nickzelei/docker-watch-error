@@ -1,0 +1,25 @@
+services:
+  my-api:
+    container_name: my-api
+    image: my-api
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 8082:8080
+    networks:
+      - my-network
+      - temporal-network
+
+    develop:
+      watch:
+        - path: bin
+          action: rebuild
+          target: /app
+
+networks:
+  my-network:
+    driver: bridge
+    name: my-network
+  temporal-network:
+    external: true
