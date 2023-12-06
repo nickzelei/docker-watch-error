@@ -1,0 +1,16 @@
+services:
+  my-api2:
+    container_name: my-api2
+    image: my-api2
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 8082:8080
+    networks:
+      - my-network2
+
+networks:
+  my-network2:
+    driver: bridge
+    name: my-network2

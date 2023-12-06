@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: ./Dockerfile.dev
     ports:
-      - 8080:8080
+      - 8083:8080
     networks:
       - my-network
-      - temporal-network
+      - my-network2
 
     develop:
       watch:
@@ -21,5 +21,5 @@ networks:
   my-network:
     driver: bridge
     name: my-network
-  temporal-network:
+  my-network2:
     external: true
